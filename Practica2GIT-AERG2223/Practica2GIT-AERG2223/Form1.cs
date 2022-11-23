@@ -28,13 +28,17 @@ namespace Practica2GIT_AERG2223
             textoTelegrama = txtTelegrama.Text;
 
             // telegrama urgente?
-            if (cbUrgente.Checked)
+            if (rbUrgente.Checked)//AERG-2223.Añadimos un radioboton
                 tipoTelegrama = 'u';
 
             //Obtengo el número de palabras que forma el telegrama
             numPalabras = textoTelegrama.Length;
 
             //Si el telegrama es ordinario
+            if (rbOrdinario.Checked)//AERG-2223.Añado esta linea antes de incorporar los cambios de usuario 2
+                tipoTelegrama = 'o';//AERG-2223.Añado esta linea    "   "       "       "   "     "     "  
+            numPalabras = textoTelegrama.Split(' ','.',',',':',';').Length;//AERG-2223.Añado esta linea
+
             if (tipoTelegrama == 'o')
                 if (numPalabras <= 10)
                     coste = 25;
