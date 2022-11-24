@@ -16,14 +16,17 @@ namespace Practica2GIT_AERG2223
         {
             InitializeComponent();
         }
-
+        //AERG-2223.MODIFICAMOS LOS ERRORES
         private void button1_Click(object sender, EventArgs e)
         {
             string textoTelegrama;
-            char tipoTelegrama = ' ';
-            int numPalabras = 0;
+            /*AERG-2223.ERROR LOGICO DETECTADO.No está inicializada la variable tipoTelegrama con ningún valor
+             por tanto nos da error en la LINEA 42.Debemos de darle valor 'o' a dicha variable.
+             */
+            char tipoTelegrama = 'o';//AERG-2223.Damos valor al tipoTelegrama
+            int numPalabras;
             double coste;
-
+            //TODO AERG-2223.Punto de interrupcion para comprobar que ocurre nada mas recoger el programa el texto.
             //Leo el telegrama
             textoTelegrama = txtTelegrama.Text;
 
@@ -32,7 +35,7 @@ namespace Practica2GIT_AERG2223
                 tipoTelegrama = 'u';
 
             //Obtengo el número de palabras que forma el telegrama
-            numPalabras = textoTelegrama.Length;
+            numPalabras = textoTelegrama.Split(' ', '.', ',', ':', ';').Length;
 
             //Si el telegrama es ordinario
             if (rbOrdinario.Checked)//AERG-2223.Añado esta linea antes de incorporar los cambios de usuario 2
@@ -41,7 +44,7 @@ namespace Practica2GIT_AERG2223
 
             if (tipoTelegrama == 'o')
                 if (numPalabras <= 10)
-                    coste = 25;
+                    coste = 2.5;
                 else
                     coste = 0.5 * numPalabras;
             else
